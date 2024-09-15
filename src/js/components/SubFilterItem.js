@@ -14,7 +14,7 @@ class SubFilterItem extends React.Component {
 
   getFilterItemsForCarousel() {
     axios
-      .get("https://coupon-uthao.onrender.com//subFilters/")
+      .get("https://coupon-uthao.onrender.com/subFilters/")
       .then(response => {
         this.props.setSubFilterItems(response.data);
         if (response.data.length > 0) {
