@@ -76,7 +76,7 @@ class UserEntryModal extends React.Component {
     }
 
     axios
-      .post("http://localhost:5000/user/register", {
+      .post("https://coupon-uthao.onrender.com/user/register", {
         username: this.state.userSignUpInfo.username,
         password: this.state.userSignUpInfo.password,
         emailID: this.state.userSignUpInfo.emailID,
@@ -113,7 +113,7 @@ class UserEntryModal extends React.Component {
     }
 
     axios
-      .get("http://localhost:5000/user/login", {
+      .get("https://coupon-uthao.onrender.com/user/login", {
         auth: {
           username: this.state.username,
           password: this.state.password
