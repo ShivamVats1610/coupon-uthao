@@ -53,7 +53,7 @@ class AddCouponModal extends React.Component {
     let sDispatchPath =
       "set" + sFieldName.charAt(0).toUpperCase() + sFieldName.slice(1);
     axios
-      .get("http://localhost:5000/" + sFieldName)
+      .get("https://coupon-uthao.onrender.com/" + sFieldName)
       .then(response => {
         this.props[sDispatchPath](response.data || []);
       })
