@@ -55,7 +55,7 @@ class SearchContent extends Component {
         });
       }
 
-      const response = await axios.get("http://localhost:5000/coupons/", {
+      const response = await axios.get("https://coupon-uthao.onrender.com/coupons/", {
         params: {
           searchFilter: searchText,
           subFilters: filter,
