@@ -14,7 +14,7 @@ const uri = process.env.ATLAS_URI;
 
 // const localUri = 'mongodb://127.0.0.1:27017/coupon-uthao';
 // const uri = 'mongodb+srv://shivamvats1610:vats1610@coupo.ubgdw.mongodb.net/?&w=majority&appName=coupo';
-mongoose.set("bufferCommands", false);
+
 mongoose.connect(uri, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
