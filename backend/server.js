@@ -15,14 +15,19 @@ const uri = process.env.ATLAS_URI;
 // const localUri = 'mongodb://127.0.0.1:27017/coupon-uthao';
 // const uri = 'mongodb+srv://shivamvats1610:vats1610@coupo.ubgdw.mongodb.net/?&w=majority&appName=coupo';
 
-mongoose.connect(uri, { 
+mongoose.connect(uri, {
   useNewUrlParser: true,
-  useUnifiedTopology: true 
+  useUnifiedTopology: true,
+  serverSelectionTimeoutMS: 5000, // Reduce timeout to fail fast if MongoDB is unreachable
+  connectTimeoutMS: 10000 // Ensure Mongoose doesn't hang
 }).then(() => {
   console.log("MongoDB connection successful");
 }).catch((err) => {
   console.error("MongoDB connection error:", err.message);
 });
+const db = mongoose.connection;
+db.on("error", err => console.error("MongoDB Connection Error:", err));
+db.once("open", () => console.log("MongoDB Connected"));
 
 const coupons = require("./routes/coupons");
 app.use("/coupons", coupons);
